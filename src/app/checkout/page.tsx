@@ -7,7 +7,7 @@ import { useCart } from "@/context/CartContext";
 import { formatPrice, DELIVERY_FEE } from "@/lib/menu-config";
 import { saveOrderRef } from "@/lib/orders";
 import PageHeader from "@/components/PageHeader";
-import { BagIcon, CheckIcon, MapPinIcon } from "@/components/icons";
+import { BagIcon, CartIcon, CheckIcon, MapPinIcon } from "@/components/icons";
 
 export default function CheckoutPage() {
   const { items, subtotal, hydrated, dispatch } = useCart();
@@ -40,7 +40,9 @@ export default function CheckoutPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="إتمام الطلب" />
         <div className="mt-20 text-center">
-          <p className="text-5xl">🛒</p>
+          <div className="w-24 h-24 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
+            <CartIcon className="w-10 h-10 text-olive-600" />
+          </div>
           <p className="mt-4 font-bold">ما فيه شي في السلة</p>
           <button
             onClick={() => router.push("/menu")}

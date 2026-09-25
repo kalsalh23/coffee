@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -17,7 +17,7 @@
   --color-cream: #faf9f3;
   --color-ink: #23281a;
 
-  --font-sans: "Cairo", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Almarai", "Segoe UI", system-ui, sans-serif;
 }
 
 @layer base {

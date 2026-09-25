@@ -8,7 +8,7 @@ import { CartItem, Product } from "@/lib/types";
 import { extrasFor, formatPrice, sizesFor } from "@/lib/menu-config";
 import { useCart } from "@/context/CartContext";
 import PageHeader from "@/components/PageHeader";
-import { CheckIcon, MinusIcon, PlusIcon } from "@/components/icons";
+import { BagIcon, CheckIcon, MinusIcon, PlusIcon } from "@/components/icons";
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -98,7 +98,9 @@ export default function ProductPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="تفاصيل المنتج" />
         <div className="mt-16 text-center">
-          <p className="text-5xl">🫙</p>
+          <div className="w-20 h-20 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
+            <BagIcon className="w-9 h-9 text-olive-600" />
+          </div>
           <p className="mt-4 font-bold">{error ?? "لم نجد هذا المنتج"}</p>
           <Link
             href="/menu"

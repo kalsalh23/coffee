@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { Category, Product } from "@/lib/types";
+import { categoryImage } from "@/lib/menu-config";
 import ProductCard from "@/components/ProductCard";
 import { BagIcon } from "@/components/icons";
 
@@ -58,28 +59,41 @@ export default function MenuPage() {
     <main className="mx-auto max-w-lg pb-32">
       <header className="pt-6 px-4">
         <h1 className="text-2xl font-black">المنيو</h1>
-        <p className="text-sm text-olive-800/70 font-medium mt-0.5">
-          كل شي طازج ومن محامص مختصة 🌿
+        <p className="text-sm text-olive-800/70 font-bold mt-0.5">
+          كل شي طازج ومن محامص مختصة
         </p>
       </header>
 
       {!loading && !error && grouped.length > 0 && (
         <nav className="sticky top-0 z-40 bg-cream/95 backdrop-blur mt-4 py-2.5 border-b border-olive-100">
           <div className="flex gap-2 overflow-x-auto no-scrollbar px-4">
-            {grouped.map(({ category }) => (
-              <button
-                key={category.id}
-                onClick={() => jumpTo(category.slug)}
-                className={`shrink-0 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold transition-colors ${
-                  activeCat === category.slug
-                    ? "bg-olive-700 text-olive-50"
-                    : "bg-white border border-olive-100 text-olive-900"
-                }`}
-              >
-                <span>{category.emoji}</span>
-                {category.name_ar}
-              </button>
-            ))}
+            {grouped.map(({ category }) => {
+              const img = categoryImage(category.slug);
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => jumpTo(category.slug)}
+                  className={`shrink-0 inline-flex items-center gap-2 rounded-full ps-1.5 pe-4 py-1.5 text-sm font-bold transition-colors ${
+                    activeCat === category.slug
+                      ? "bg-olive-700 text-olive-50"
+                      : "bg-white border border-olive-100 text-olive-900"
+                  }`}
+                >
+                  {img ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={img}
+                      alt=""
+                      loading="lazy"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span>{category.emoji}</span>
+                  )}
+                  {category.name_ar}
+                </button>
+              );
+            })}
           </div>
         </nav>
       )}
@@ -119,8 +133,18 @@ export default function MenuPage() {
           {grouped.map(({ category, items }) => (
             <section key={category.id} id={category.slug} className="mt-8 scroll-mt-24">
               <div className="flex items-center justify-between mb-3">
-                <h2 className="text-lg font-black flex items-center gap-2">
-                  <span>{category.emoji}</span>
+                <h2 className="text-lg font-extrabold flex items-center gap-2.5">
+                  {categoryImage(category.slug) ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={categoryImage(category.slug)}
+                      alt=""
+                      loading="lazy"
+                      className="w-10 h-10 rounded-2xl object-cover"
+                    />
+                  ) : (
+                    <span>{category.emoji}</span>
+                  )}
                   {category.name_ar}
                 </h2>
                 <span className="text-xs font-bold text-olive-800/50">{items.length} أصناف</span>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { Category, Product } from "@/lib/types";
+import { categoryImage, storageImage } from "@/lib/menu-config";
 import Logo from "@/components/Logo";
 import ProductCard from "@/components/ProductCard";
 import { PlusIcon, StarIcon } from "@/components/icons";
@@ -65,16 +66,19 @@ export default function HomePage() {
       </header>
 
       <section className="mt-5 rounded-3xl bg-gradient-to-bl from-olive-900 via-olive-800 to-olive-600 text-cream p-6 relative overflow-hidden">
-        <span className="absolute -bottom-6 -left-4 text-[9rem] opacity-10 select-none rotate-12">
-          ☕
-        </span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={storageImage("cold-brew.jpg")}
+          alt=""
+          className="absolute -bottom-14 -left-14 w-52 h-52 object-cover rounded-full opacity-20 rotate-12 ring-8 ring-white/5"
+        />
         <p className="text-olive-200 text-xs font-bold">مختصون بالقهوة منذ الحبة الأولى</p>
-        <h1 className="text-2xl font-black mt-1.5 leading-snug">
+        <h1 className="text-2xl font-extrabold mt-1.5 leading-snug">
           فنجانك يجهز لك
           <br />
           خلال 5 دقائق
         </h1>
-        <p className="text-sm text-olive-100/80 mt-2 font-medium">
+        <p className="text-sm text-olive-100/80 mt-2 font-bold">
           اطلب من المنيو واستلم من الفرع أو نوصله لباب البيت
         </p>
         <Link
@@ -112,16 +116,29 @@ export default function HomePage() {
         <>
           <section className="mt-8">
             <div className="flex gap-2.5 overflow-x-auto no-scrollbar pb-1">
-              {categories.map((c) => (
-                <Link
-                  key={c.id}
-                  href={`/menu#${c.slug}`}
-                  className="shrink-0 inline-flex items-center gap-1.5 bg-white border border-olive-100 shadow-sm shadow-olive-950/5 rounded-full px-4 py-2.5 text-sm font-bold text-olive-900 hover:bg-olive-50 transition-colors"
-                >
-                  <span className="text-base">{c.emoji}</span>
-                  {c.name_ar}
-                </Link>
-              ))}
+              {categories.map((c) => {
+                const img = categoryImage(c.slug);
+                return (
+                  <Link
+                    key={c.id}
+                    href={`/menu#${c.slug}`}
+                    className="shrink-0 inline-flex items-center gap-2 bg-white border border-olive-100 shadow-sm shadow-olive-950/5 rounded-full ps-1.5 pe-4 py-1.5 text-sm font-bold text-olive-900 hover:bg-olive-50 transition-colors"
+                  >
+                    {img ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={img}
+                        alt=""
+                        loading="lazy"
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-base">{c.emoji}</span>
+                    )}
+                    {c.name_ar}
+                  </Link>
+                );
+              })}
             </div>
           </section>
 

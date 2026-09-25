@@ -8,7 +8,7 @@ import { formatPrice } from "@/lib/menu-config";
 import { OrderItemRecord, OrderRecord } from "@/lib/types";
 import PageHeader from "@/components/PageHeader";
 import { statusStep } from "@/components/StatusChip";
-import { BagIcon, CheckIcon, MapPinIcon, PhoneIcon } from "@/components/icons";
+import { BagIcon, CheckIcon, MapPinIcon, PhoneIcon, ReceiptIcon } from "@/components/icons";
 
 export default function OrderDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -54,7 +54,9 @@ export default function OrderDetailPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="تفاصيل الطلب" />
         <div className="mt-16 text-center">
-          <p className="text-5xl">🔍</p>
+          <div className="w-20 h-20 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
+            <ReceiptIcon className="w-9 h-9 text-olive-600" />
+          </div>
           <p className="mt-4 font-bold">ما قدرنا نلقى هذا الطلب</p>
           <Link
             href="/orders"
@@ -224,7 +226,7 @@ export default function OrderDetailPage() {
             href="/menu"
             className="block text-center rounded-3xl bg-olive-900 text-olive-50 shadow-xl shadow-olive-950/25 py-4 font-extrabold text-sm active:scale-[.98] transition-transform"
           >
-            اطلب مرة ثانية ☕
+            طلب مرة ثانية
           </Link>
         </div>
       </div>

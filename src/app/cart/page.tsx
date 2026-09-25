@@ -33,8 +33,8 @@ export default function CartPage() {
             <CartIcon className="w-10 h-10 text-olive-600" />
           </div>
           <h2 className="mt-5 text-lg font-black">سلتك فاضية</h2>
-          <p className="mt-1 text-sm text-olive-800/70 font-medium">
-            تصفح الممنو واخترلك شي يشدك ☕
+          <p className="mt-1 text-sm text-olive-800/70 font-bold">
+            تصفح المنيو واخترلك شي يشدك
           </p>
           <Link
             href="/menu"

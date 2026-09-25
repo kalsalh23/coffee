@@ -55,3 +55,23 @@ export function formatPrice(n: number): string {
   const v = Number(n) || 0;
   return v.toFixed(2).replace(/\.00$/, "") + " " + CURRENCY;
 }
+
+const STORAGE_BASE =
+  (process.env.NEXT_PUBLIC_SUPABASE_URL ?? "") + "/storage/v1/object/public/menu/";
+
+const CATEGORY_IMAGES: Record<string, string> = {
+  hot: STORAGE_BASE + "cappuccino.jpg",
+  iced: STORAGE_BASE + "iced-latte.jpg",
+  refreshers: STORAGE_BASE + "mint-mojito.jpg",
+  matcha: STORAGE_BASE + "matcha-latte.jpg",
+  desserts: STORAGE_BASE + "basque-cheesecake.jpg",
+  beans: STORAGE_BASE + "ethiopia.jpg",
+};
+
+export function categoryImage(slug: string): string | undefined {
+  return CATEGORY_IMAGES[slug];
+}
+
+export function storageImage(name: string): string {
+  return STORAGE_BASE + name;
+}
