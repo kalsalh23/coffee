@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-olive-50: #f6f7ef;
+  --color-olive-100: #ebeee0;
+  --color-olive-200: #d6ddc2;
+  --color-olive-300: #b9c49b;
+  --color-olive-400: #9aa97a;
+  --color-olive-500: #7d8e5c;
+  --color-olive-600: #637347;
+  --color-olive-700: #4e5b39;
+  --color-olive-800: #414a31;
+  --color-olive-900: #383f2b;
+  --color-olive-950: #1c2012;
+
+  --color-cream: #faf9f3;
+  --color-ink: #23281a;
+
+  --font-sans: "Cairo", "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-olive-200;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
