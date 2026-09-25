@@ -69,6 +69,7 @@ export default function ProductPage() {
       nameAr: product.name_ar,
       nameEn: product.name_en,
       emoji: product.emoji,
+      imageUrl: product.image_url ?? null,
       size,
       extras: chosenExtras,
       qty,
@@ -116,6 +117,17 @@ export default function ProductPage() {
 
       <div className="relative aspect-[4/3] rounded-3xl bg-gradient-to-br from-olive-100 via-olive-50 to-olive-200 flex items-center justify-center overflow-hidden mt-2">
         <span className="text-[7rem] drop-shadow">{product.emoji}</span>
+        {product.image_url && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={product.image_url}
+            alt={product.name_ar}
+            className="absolute inset-0 h-full w-full object-cover"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+        )}
       </div>
 
       <div className="mt-4 flex items-start justify-between gap-3">

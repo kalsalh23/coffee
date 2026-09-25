@@ -87,6 +87,7 @@ export default function CheckoutPage() {
           product_name: i.nameAr,
           product_name_en: i.nameEn,
           size: i.size?.label ?? null,
+          image_url: i.imageUrl,
           extras: i.extras.map((e) => ({ label: e.label, price: e.price })),
           quantity: i.qty,
           unit_price: i.unitPrice,

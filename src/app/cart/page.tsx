@@ -57,8 +57,20 @@ export default function CartPage() {
             key={item.key}
             className="bg-white border border-olive-100 rounded-3xl p-3 flex gap-3 items-center"
           >
-            <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-olive-100 to-olive-200 flex items-center justify-center text-3xl">
+            <div className="relative w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-olive-100 to-olive-200 flex items-center justify-center text-3xl overflow-hidden">
               {item.emoji}
+              {item.imageUrl && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={item.imageUrl}
+                  alt={item.nameAr}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+              )}
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-2">

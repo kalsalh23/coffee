@@ -15,6 +15,7 @@ export type Product = {
   description_ar: string;
   base_price: number;
   emoji: string;
+  image_url?: string | null;
   price_mode: "drink" | "dessert" | "beans";
   is_featured: boolean;
   is_available: boolean;
@@ -32,6 +33,7 @@ export type CartItem = {
   nameAr: string;
   nameEn: string;
   emoji: string;
+  imageUrl: string | null;
   size: SizeOption | null;
   extras: Extra[];
   qty: number;
@@ -60,6 +62,7 @@ export type OrderItemRecord = {
   product_name: string;
   product_name_en: string | null;
   size: string | null;
+  image_url?: string | null;
   extras: { label: string; price: number }[];
   quantity: number;
   unit_price: number;

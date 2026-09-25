@@ -147,8 +147,23 @@ export default function OrderDetailPage() {
         <h2 className="font-black text-sm mb-3">الأصناف</h2>
         <div className="space-y-3">
           {items.map((i) => (
-            <div key={i.id} className="flex items-start justify-between gap-3">
-              <div className="min-w-0">
+            <div key={i.id} className="flex items-center gap-3">
+              <div className="relative w-12 h-12 shrink-0 rounded-2xl bg-gradient-to-br from-olive-100 to-olive-200 flex items-center justify-center text-2xl overflow-hidden">
+                {"☕"}
+                {i.image_url && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={i.image_url}
+                    alt={i.product_name}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
                 <p className="font-extrabold text-sm truncate">
                   {i.quantity}× {i.product_name}
                 </p>
