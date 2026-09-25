@@ -56,7 +56,7 @@ export default function MenuPage() {
   }
 
   return (
-    <main className="mx-auto max-w-lg pb-32">
+    <main className="mx-auto max-w-lg pb-4">
       <header className="pt-6 px-4">
         <h1 className="text-2xl font-black">المنيو</h1>
         <p className="text-sm text-olive-800/70 font-bold mt-0.5">

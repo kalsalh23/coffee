@@ -39,7 +39,7 @@ export default function OrderDetailPage() {
 
   if (loading) {
     return (
-      <main className="mx-auto max-w-lg px-4 pb-40">
+      <main className="mx-auto max-w-lg px-4 pb-4">
         <PageHeader title="تفاصيل الطلب" />
         <div className="mt-4 space-y-3" aria-busy="true">
           <div className="h-36 rounded-3xl bg-olive-100 animate-pulse" />
@@ -51,7 +51,7 @@ export default function OrderDetailPage() {
 
   if (notFound || !order) {
     return (
-      <main className="mx-auto max-w-lg px-4 pb-40">
+      <main className="mx-auto max-w-lg px-4 pb-4">
         <PageHeader title="تفاصيل الطلب" />
         <div className="mt-16 text-center">
           <div className="w-20 h-20 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
@@ -77,7 +77,7 @@ export default function OrderDetailPage() {
       : ["تم الطلب", "قيد التحضير", "جاهز للاستلام", "تم التسليم"];
 
   return (
-    <main className="mx-auto max-w-lg px-4 pb-40">
+    <main className="mx-auto max-w-lg px-4 pb-4">
       <PageHeader title="تفاصيل الطلب" />
 
       <section className="mt-2 bg-white border border-olive-100 rounded-3xl p-5">

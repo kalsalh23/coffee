@@ -3,14 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/context/CartContext";
-import { CartIcon, HomeIcon, InfoIcon, MenuIcon, ReceiptIcon } from "./icons";
+import { CartIcon, HomeIcon, MenuIcon, ReceiptIcon } from "./icons";
 
 const TABS = [
   { href: "/", label: "الرئيسية", Icon: HomeIcon },
   { href: "/menu", label: "المنيو", Icon: MenuIcon },
   { href: "/cart", label: "السلة", Icon: CartIcon },
   { href: "/orders", label: "طلباتي", Icon: ReceiptIcon },
-  { href: "/about", label: "عن المحل", Icon: InfoIcon },
 ];
 
 export default function BottomNav() {

@@ -112,7 +112,7 @@ export default function CheckoutPage() {
     "w-full rounded-2xl border border-olive-100 bg-white px-4 py-3 text-sm font-semibold placeholder:text-olive-800/40 focus:outline-none focus:border-olive-400 focus:ring-2 focus:ring-olive-100";
 
   return (
-    <main className="mx-auto max-w-lg px-4 pb-48">
+    <main className="mx-auto max-w-lg px-4 pb-4">
       <PageHeader title="إتمام الطلب" />
 
       <section className="mt-2">

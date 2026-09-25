@@ -46,7 +46,7 @@ export default function HomePage() {
   const grid = products.slice(0, 8);
 
   return (
-    <main className="mx-auto max-w-lg px-4 pb-32">
+    <main className="mx-auto max-w-lg px-4 pb-4">
       <header className="pt-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Logo size={46} />

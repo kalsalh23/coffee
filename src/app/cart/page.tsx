@@ -48,7 +48,7 @@ export default function CartPage() {
   }
 
   return (
-    <main className="mx-auto max-w-lg px-4 pb-48">
+    <main className="mx-auto max-w-lg px-4 pb-4">
       <PageHeader title={`السلة (${count})`} />
 
       <div className="mt-2 space-y-3">

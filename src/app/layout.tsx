@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import BottomNav from "@/components/BottomNav";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "5mintcoffee | قهوة مختصة",
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body>
         <CartProvider>
           {children}
+          <SiteFooter />
           <BottomNav />
         </CartProvider>
       </body>

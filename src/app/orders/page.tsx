@@ -41,7 +41,7 @@ export default function OrdersPage() {
   }, []);
 
   return (
-    <main className="mx-auto max-w-lg px-4 pb-32">
+    <main className="mx-auto max-w-lg px-4 pb-4">
       <header className="pt-6">
         <h1 className="text-2xl font-black">طلباتي</h1>
         <p className="text-sm text-olive-800/70 font-medium mt-0.5">تابع حالة طلباتك السابقة</p>
