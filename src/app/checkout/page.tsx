@@ -138,7 +138,7 @@ export default function CheckoutPage() {
             }`}
           >
             <MapPinIcon className="w-4 h-4" />
-            توصيل ({DELIVERY_FEE} ر.س)
+            توصيل ({formatPrice(DELIVERY_FEE)})
           </button>
         </div>
       </section>

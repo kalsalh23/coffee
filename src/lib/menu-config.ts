@@ -1,38 +1,38 @@
 import { Extra, SizeOption } from "./types";
 
-export const DELIVERY_FEE = 15;
-export const CURRENCY = "ر.س";
+export const DELIVERY_FEE = 25000;
+export const CURRENCY = "ل.س";
 
 export const SIZES: Record<string, SizeOption[]> = {
   drink: [
     { id: "S", label: "صغير", delta: 0 },
-    { id: "M", label: "وسط", delta: 3 },
-    { id: "L", label: "كبير", delta: 5 },
+    { id: "M", label: "وسط", delta: 5000 },
+    { id: "L", label: "كبير", delta: 10000 },
   ],
   beans: [
     { id: "250", label: "250 غرام", delta: 0 },
-    { id: "500", label: "500 غرام", delta: 25 },
-    { id: "1000", label: "كيلو غرام", delta: 45 },
+    { id: "500", label: "500 غرام", delta: 60000 },
+    { id: "1000", label: "كيلو غرام", delta: 110000 },
   ],
   dessert: [],
 };
 
 const COFFEE_EXTRAS: Extra[] = [
-  { id: "x-espresso", label: "شوت إسبريسو إضافي", price: 4 },
-  { id: "x-almond", label: "حليب لوز", price: 3 },
-  { id: "x-coconut", label: "حليب جوز الهند", price: 3 },
-  { id: "x-caramel", label: "كراميل", price: 2 },
-  { id: "x-vanilla", label: "فانيلا", price: 2 },
+  { id: "x-espresso", label: "شوت إسبريسو إضافي", price: 8000 },
+  { id: "x-almond", label: "حليب لوز", price: 6000 },
+  { id: "x-coconut", label: "حليب جوز الهند", price: 6000 },
+  { id: "x-caramel", label: "كراميل", price: 4000 },
+  { id: "x-vanilla", label: "فانيلا", price: 4000 },
 ];
 
 const REFRESHER_EXTRAS: Extra[] = [
-  { id: "x-mint", label: "نعناع طازج", price: 1 },
-  { id: "x-chia", label: "بذور الشيا", price: 1 },
+  { id: "x-mint", label: "نعناع طازج", price: 2000 },
+  { id: "x-chia", label: "بذور الشيا", price: 2000 },
 ];
 
 const MATCHA_EXTRAS: Extra[] = [
-  { id: "x-almond", label: "حليب لوز", price: 3 },
-  { id: "x-coconut", label: "حليب جوز الهند", price: 3 },
+  { id: "x-almond", label: "حليب لوز", price: 6000 },
+  { id: "x-coconut", label: "حليب جوز الهند", price: 6000 },
 ];
 
 const EXTRAS_BY_CATEGORY: Record<string, Extra[]> = {
@@ -52,8 +52,8 @@ export function sizesFor(priceMode: string): SizeOption[] {
 }
 
 export function formatPrice(n: number): string {
-  const v = Number(n) || 0;
-  return v.toFixed(2).replace(/\.00$/, "") + " " + CURRENCY;
+  const v = Math.round(Number(n) || 0);
+  return v.toLocaleString("en-US") + " " + CURRENCY;
 }
 
 const STORAGE_BASE =

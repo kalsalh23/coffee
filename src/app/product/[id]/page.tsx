@@ -166,7 +166,7 @@ export default function ProductPage() {
               >
                 {s.label}
                 <span className="block text-[11px] font-semibold opacity-80 mt-0.5">
-                  {s.delta > 0 ? `+${s.delta} ر.س` : "السعر الأساسي"}
+                  {s.delta > 0 ? `+ ${formatPrice(s.delta)}` : "السعر الأساسي"}
                 </span>
               </button>
             ))}
@@ -192,7 +192,7 @@ export default function ProductPage() {
                 >
                   {on && <CheckIcon className="w-3 h-3" />}
                   {e.label}
-                  <span className="opacity-75">+{e.price} ر.س</span>
+                  <span className="opacity-75">+ {formatPrice(e.price)}</span>
                 </button>
               );
             })}

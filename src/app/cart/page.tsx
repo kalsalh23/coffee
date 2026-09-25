@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
-import { formatPrice } from "@/lib/menu-config";
+import { formatPrice, DELIVERY_FEE } from "@/lib/menu-config";
 import PageHeader from "@/components/PageHeader";
 import { CartIcon, MinusIcon, PlusIcon, TrashIcon } from "@/components/icons";
 
@@ -121,7 +121,7 @@ export default function CartPage() {
         </div>
         <div className="flex justify-between text-xs font-semibold text-olive-800/60">
           <span>رسوم التوصيل</span>
-          <span>15 ر.س (تُحسب عند اختيار التوصيل)</span>
+          <span>{formatPrice(DELIVERY_FEE)} — تُحسب عند اختيار التوصيل</span>
         </div>
       </div>
 
