@@ -59,13 +59,13 @@ export default function MenuPage() {
     <main className="mx-auto max-w-lg pb-4">
       <header className="pt-6 px-4">
         <h1 className="text-2xl font-black">المنيو</h1>
-        <p className="text-sm text-olive-800/70 font-bold mt-0.5">
+        <p className="text-sm text-brand-800/70 font-bold mt-0.5">
           كل شي طازج ومن محامص مختصة
         </p>
       </header>
 
       {!loading && !error && grouped.length > 0 && (
-        <nav className="sticky top-0 z-40 bg-cream/95 backdrop-blur mt-4 py-2.5 border-b border-olive-100">
+        <nav className="sticky top-0 z-40 bg-cream/95 backdrop-blur mt-4 py-2.5 border-b border-brand-100">
           <div className="flex gap-2 overflow-x-auto no-scrollbar px-4">
             {grouped.map(({ category }) => {
               const img = categoryImage(category.slug);
@@ -75,8 +75,8 @@ export default function MenuPage() {
                   onClick={() => jumpTo(category.slug)}
                   className={`shrink-0 inline-flex items-center gap-2 rounded-full ps-1.5 pe-4 py-1.5 text-sm font-bold transition-colors ${
                     activeCat === category.slug
-                      ? "bg-olive-700 text-olive-50"
-                      : "bg-white border border-olive-100 text-olive-900"
+                      ? "bg-brand-700 text-brand-50"
+                      : "bg-white border border-brand-100 text-brand-900"
                   }`}
                 >
                   {img ? (
@@ -102,10 +102,10 @@ export default function MenuPage() {
         <div className="px-4 mt-6 space-y-6" aria-busy="true">
           {[...Array(3)].map((_, s) => (
             <div key={s}>
-              <div className="h-6 w-28 rounded-lg bg-olive-100 animate-pulse mb-3" />
+              <div className="h-6 w-28 rounded-lg bg-brand-100 animate-pulse mb-3" />
               <div className="grid grid-cols-2 gap-3">
                 {[...Array(2)].map((_, i) => (
-                  <div key={i} className="h-56 rounded-3xl bg-olive-100 animate-pulse" />
+                  <div key={i} className="h-56 rounded-3xl bg-brand-100 animate-pulse" />
                 ))}
               </div>
             </div>
@@ -121,8 +121,8 @@ export default function MenuPage() {
 
       {!loading && !error && grouped.length === 0 && (
         <div className="mt-20 text-center px-4">
-          <div className="w-20 h-20 mx-auto rounded-3xl bg-olive-100 flex items-center justify-center">
-            <BagIcon className="w-9 h-9 text-olive-600" />
+          <div className="w-20 h-20 mx-auto rounded-3xl bg-brand-100 flex items-center justify-center">
+            <BagIcon className="w-9 h-9 text-brand-600" />
           </div>
           <p className="mt-4 font-bold">الممنو فارغ حالياً</p>
         </div>
@@ -147,7 +147,7 @@ export default function MenuPage() {
                   )}
                   {category.name_ar}
                 </h2>
-                <span className="text-xs font-bold text-olive-800/50">{items.length} أصناف</span>
+                <span className="text-xs font-bold text-brand-800/50">{items.length} أصناف</span>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 {items.map((p) => (

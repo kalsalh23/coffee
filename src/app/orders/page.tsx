@@ -44,27 +44,27 @@ export default function OrdersPage() {
     <main className="mx-auto max-w-lg px-4 pb-4">
       <header className="pt-6">
         <h1 className="text-2xl font-black">طلباتي</h1>
-        <p className="text-sm text-olive-800/70 font-medium mt-0.5">تابع حالة طلباتك السابقة</p>
+        <p className="text-sm text-brand-800/70 font-medium mt-0.5">تابع حالة طلباتك السابقة</p>
       </header>
 
       {rows === null && (
         <div className="mt-6 space-y-3" aria-busy="true">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="h-28 rounded-3xl bg-olive-100 animate-pulse" />
+            <div key={i} className="h-28 rounded-3xl bg-brand-100 animate-pulse" />
           ))}
         </div>
       )}
 
       {rows !== null && rows.length === 0 && (
         <div className="mt-20 text-center">
-          <div className="w-24 h-24 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
-            <ReceiptIcon className="w-10 h-10 text-olive-600" />
+          <div className="w-24 h-24 mx-auto rounded-full bg-brand-100 flex items-center justify-center">
+            <ReceiptIcon className="w-10 h-10 text-brand-600" />
           </div>
           <h2 className="mt-5 text-lg font-black">ما عندك طلبات بعد</h2>
-          <p className="mt-1 text-sm text-olive-800/70 font-medium">أول طلب لك يظهر هنا مباشرة</p>
+          <p className="mt-1 text-sm text-brand-800/70 font-medium">أول طلب لك يظهر هنا مباشرة</p>
           <Link
             href="/menu"
-            className="mt-6 inline-block bg-olive-700 text-olive-50 font-extrabold text-sm px-8 py-3.5 rounded-full active:scale-95 transition-transform"
+            className="mt-6 inline-block bg-brand-700 text-brand-50 font-extrabold text-sm px-8 py-3.5 rounded-full active:scale-95 transition-transform"
           >
             ابدأ الطلب
           </Link>
@@ -77,16 +77,16 @@ export default function OrdersPage() {
             <Link
               key={ref.id}
               href={`/orders/${ref.id}`}
-              className="block bg-white border border-olive-100 rounded-3xl p-4 hover:shadow-md hover:shadow-olive-950/5 transition-shadow"
+              className="block bg-white border border-brand-100 rounded-3xl p-4 hover:shadow-md hover:shadow-brand-950/5 transition-shadow"
             >
               <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-bold text-olive-800/50" dir="ltr">
+                <span className="text-xs font-bold text-brand-800/50" dir="ltr">
                   #{ref.id.slice(0, 8).toUpperCase()}
                 </span>
                 {order ? (
                   <StatusChip status={order.status} />
                 ) : (
-                  <span className="text-[11px] font-bold text-olive-800/50">غير متاح</span>
+                  <span className="text-[11px] font-bold text-brand-800/50">غير متاح</span>
                 )}
               </div>
               <p className="mt-2 font-extrabold text-sm truncate">
@@ -95,7 +95,7 @@ export default function OrdersPage() {
                   : "طلب"}
               </p>
               <div className="mt-1.5 flex items-center justify-between">
-                <span className="text-xs font-semibold text-olive-800/60">
+                <span className="text-xs font-semibold text-brand-800/60">
                   {order
                     ? new Intl.DateTimeFormat("ar-EG-u-nu-latn", {
                         dateStyle: "medium",
@@ -104,7 +104,7 @@ export default function OrdersPage() {
                     : ""}
                 </span>
                 {order && (
-                  <span className="font-black text-olive-700 text-sm">
+                  <span className="font-black text-brand-700 text-sm">
                     {formatPrice(Number(order.total))}
                   </span>
                 )}

@@ -2,20 +2,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-olive-50: #f6f7ef;
-  --color-olive-100: #ebeee0;
-  --color-olive-200: #d6ddc2;
-  --color-olive-300: #b9c49b;
-  --color-olive-400: #9aa97a;
-  --color-olive-500: #7d8e5c;
-  --color-olive-600: #637347;
-  --color-olive-700: #4e5b39;
-  --color-olive-800: #414a31;
-  --color-olive-900: #383f2b;
-  --color-olive-950: #1c2012;
+  --color-brand-50: #fbf1f2;
+  --color-brand-100: #f6dfe2;
+  --color-brand-200: #efbfc4;
+  --color-brand-300: #e599a0;
+  --color-brand-400: #d96c77;
+  --color-brand-500: #cf4553;
+  --color-brand-600: #c32738;
+  --color-brand-700: #a51e2e;
+  --color-brand-800: #8a1b29;
+  --color-brand-900: #741926;
+  --color-brand-950: #400b12;
 
-  --color-cream: #faf9f3;
-  --color-ink: #23281a;
+  --color-cream: #faf7f5;
+  --color-ink: #2a1a1c;
 
   --font-sans: "Almarai", "Segoe UI", system-ui, sans-serif;
 }
@@ -25,7 +25,7 @@
     @apply bg-cream text-ink font-sans antialiased;
   }
   ::selection {
-    @apply bg-olive-200;
+    @apply bg-brand-200;
   }
 }
 

@@ -51,39 +51,39 @@ export default function HomePage() {
         <div className="flex items-center gap-3">
           <Logo size={46} />
           <div>
-            <p className="font-black text-xl leading-tight tracking-tight" dir="ltr">
-              5mintcoffee
+            <p className="font-extrabold text-xl leading-tight tracking-tight" dir="ltr">
+              Coffee Sir
             </p>
-            <p className="text-xs font-semibold text-olive-700">قهوة مختصة • مشروبات • حلويات</p>
+            <p className="text-xs font-bold text-brand-700">قهوة مختصة — حماة</p>
           </div>
         </div>
         <Link
           href="/orders"
-          className="text-xs font-bold text-olive-700 bg-olive-100 px-3 py-2 rounded-full"
+          className="text-xs font-bold text-brand-700 bg-brand-100 px-3 py-2 rounded-full"
         >
           طلباتي
         </Link>
       </header>
 
-      <section className="mt-5 rounded-3xl bg-gradient-to-bl from-olive-900 via-olive-800 to-olive-600 text-cream p-6 relative overflow-hidden">
+      <section className="mt-5 rounded-3xl bg-gradient-to-bl from-brand-900 via-brand-800 to-brand-600 text-cream p-6 relative overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={storageImage("cold-brew.jpg")}
           alt=""
           className="absolute -bottom-14 -left-14 w-52 h-52 object-cover rounded-full opacity-20 rotate-12 ring-8 ring-white/5"
         />
-        <p className="text-olive-200 text-xs font-bold">مختصون بالقهوة منذ الحبة الأولى</p>
+        <p className="text-brand-200 text-xs font-bold">قهوة مختصة في حماة</p>
         <h1 className="text-2xl font-extrabold mt-1.5 leading-snug">
-          فنجانك يجهز لك
+          في ناس بتشرب قهوة
           <br />
-          خلال 5 دقائق
+          وفي ناس بتفهما
         </h1>
-        <p className="text-sm text-olive-100/80 mt-2 font-bold">
-          اطلب من المنيو واستلم من الفرع أو نوصله لباب البيت
+        <p className="text-sm text-brand-100/80 mt-2 font-bold">
+          اطلب من المنيو واستلم من الفرع أو نوصلها لباب بيتك
         </p>
         <Link
           href="/menu"
-          className="mt-4 inline-flex items-center gap-1.5 bg-white text-olive-900 rounded-full px-5 py-2.5 font-extrabold text-sm active:scale-95 transition-transform"
+          className="mt-4 inline-flex items-center gap-1.5 bg-white text-brand-900 rounded-full px-5 py-2.5 font-extrabold text-sm active:scale-95 transition-transform"
         >
           <PlusIcon className="w-4 h-4" />
           اطلب الآن
@@ -92,15 +92,15 @@ export default function HomePage() {
 
       {loading && (
         <div className="mt-8 space-y-4" aria-busy="true">
-          <div className="h-7 w-32 rounded-xl bg-olive-100 animate-pulse" />
+          <div className="h-7 w-32 rounded-xl bg-brand-100 animate-pulse" />
           <div className="flex gap-2.5">
             {[...Array(5)].map((_, i) => (
-              <div key={i} className="h-10 w-24 rounded-full bg-olive-100 animate-pulse" />
+              <div key={i} className="h-10 w-24 rounded-full bg-brand-100 animate-pulse" />
             ))}
           </div>
           <div className="grid grid-cols-2 gap-3">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-56 rounded-3xl bg-olive-100 animate-pulse" />
+              <div key={i} className="h-56 rounded-3xl bg-brand-100 animate-pulse" />
             ))}
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function HomePage() {
                   <Link
                     key={c.id}
                     href={`/menu#${c.slug}`}
-                    className="shrink-0 inline-flex items-center gap-2 bg-white border border-olive-100 shadow-sm shadow-olive-950/5 rounded-full ps-1.5 pe-4 py-1.5 text-sm font-bold text-olive-900 hover:bg-olive-50 transition-colors"
+                    className="shrink-0 inline-flex items-center gap-2 bg-white border border-brand-100 shadow-sm shadow-brand-950/5 rounded-full ps-1.5 pe-4 py-1.5 text-sm font-bold text-brand-900 hover:bg-brand-50 transition-colors"
                   >
                     {img ? (
                       // eslint-disable-next-line @next/next/no-img-element
@@ -145,7 +145,7 @@ export default function HomePage() {
           {featured.length > 0 && (
             <section className="mt-8">
               <h2 className="flex items-center gap-1.5 text-lg font-black mb-3">
-                <StarIcon className="w-4 h-4 text-olive-600" />
+                <StarIcon className="w-4 h-4 text-brand-600" />
                 الأكثر طلباً
               </h2>
               <div className="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-4 px-4">
@@ -161,7 +161,7 @@ export default function HomePage() {
           <section className="mt-8">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-lg font-black">استكشف الممنو</h2>
-              <Link href="/menu" className="text-sm font-bold text-olive-700">
+              <Link href="/menu" className="text-sm font-bold text-brand-700">
                 عرض الكل
               </Link>
             </div>

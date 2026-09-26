@@ -5,13 +5,13 @@ import BottomNav from "@/components/BottomNav";
 import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "5mintcoffee | قهوة مختصة",
+  title: "Coffee Sir | قهوة مختصة",
   description:
-    "تطبيق 5mintcoffee — قهوة مختصة ومشروبات وحلويات. اطلب الآن واستلم خلال 5 دقائق.",
+    "Coffee Sir — قهوة مختصة ومشروبات وحلويات في حماة. اطلب الآن واستلم من الفرع أو نوصلها لباب بيتك.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4e5b39",
+  themeColor: "#a51e2e",
   width: "device-width",
   initialScale: 1,
 };

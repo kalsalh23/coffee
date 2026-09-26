@@ -11,7 +11,7 @@ export default function PageHeader({ title }: { title: string }) {
         <button
           onClick={() => router.back()}
           aria-label="رجوع"
-          className="w-10 h-10 rounded-2xl bg-white shadow-sm shadow-olive-950/5 border border-olive-100 flex items-center justify-center text-olive-800 active:scale-95 transition-transform"
+          className="w-10 h-10 rounded-2xl bg-white shadow-sm shadow-brand-950/5 border border-brand-100 flex items-center justify-center text-brand-800 active:scale-95 transition-transform"
         >
           <ArrowRightIcon className="w-5 h-5" />
         </button>

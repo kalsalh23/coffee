@@ -85,9 +85,9 @@ export default function ProductPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="تفاصيل المنتج" />
         <div className="mt-4 space-y-4" aria-busy="true">
-          <div className="aspect-[4/3] rounded-3xl bg-olive-100 animate-pulse" />
-          <div className="h-7 w-40 rounded-lg bg-olive-100 animate-pulse" />
-          <div className="h-20 rounded-2xl bg-olive-100 animate-pulse" />
+          <div className="aspect-[4/3] rounded-3xl bg-brand-100 animate-pulse" />
+          <div className="h-7 w-40 rounded-lg bg-brand-100 animate-pulse" />
+          <div className="h-20 rounded-2xl bg-brand-100 animate-pulse" />
         </div>
       </main>
     );
@@ -98,13 +98,13 @@ export default function ProductPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="تفاصيل المنتج" />
         <div className="mt-16 text-center">
-          <div className="w-20 h-20 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
-            <BagIcon className="w-9 h-9 text-olive-600" />
+          <div className="w-20 h-20 mx-auto rounded-full bg-brand-100 flex items-center justify-center">
+            <BagIcon className="w-9 h-9 text-brand-600" />
           </div>
           <p className="mt-4 font-bold">{error ?? "لم نجد هذا المنتج"}</p>
           <Link
             href="/menu"
-            className="mt-5 inline-block bg-olive-700 text-olive-50 font-bold text-sm px-6 py-3 rounded-full"
+            className="mt-5 inline-block bg-brand-700 text-brand-50 font-bold text-sm px-6 py-3 rounded-full"
           >
             رجوع للمنيو
           </Link>
@@ -117,7 +117,7 @@ export default function ProductPage() {
     <main className="mx-auto max-w-lg px-4 pb-44">
       <PageHeader title={product.name_ar} />
 
-      <div className="relative aspect-[4/3] rounded-3xl bg-gradient-to-br from-olive-100 via-olive-50 to-olive-200 flex items-center justify-center overflow-hidden mt-2">
+      <div className="relative aspect-[4/3] rounded-3xl bg-gradient-to-br from-brand-100 via-brand-50 to-brand-200 flex items-center justify-center overflow-hidden mt-2">
         <span className="text-[7rem] drop-shadow">{product.emoji}</span>
         {product.image_url && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -135,17 +135,17 @@ export default function ProductPage() {
       <div className="mt-4 flex items-start justify-between gap-3">
         <div>
           <h1 className="text-xl font-black">{product.name_ar}</h1>
-          <p className="text-sm text-olive-800/60 font-semibold mt-0.5" dir="ltr">
+          <p className="text-sm text-brand-800/60 font-semibold mt-0.5" dir="ltr">
             {product.name_en}
           </p>
         </div>
-        <span className="text-xl font-black text-olive-700 whitespace-nowrap">
+        <span className="text-xl font-black text-brand-700 whitespace-nowrap">
           {formatPrice(Number(product.base_price))}
         </span>
       </div>
 
       {product.description_ar && (
-        <p className="mt-2.5 text-sm leading-relaxed text-olive-900/80 font-medium bg-white border border-olive-100 rounded-2xl p-4">
+        <p className="mt-2.5 text-sm leading-relaxed text-brand-900/80 font-medium bg-white border border-brand-100 rounded-2xl p-4">
           {product.description_ar}
         </p>
       )}
@@ -160,8 +160,8 @@ export default function ProductPage() {
                 onClick={() => setSizeId(s.id)}
                 className={`rounded-2xl py-3 text-sm font-bold border transition-colors ${
                   sizeId === s.id
-                    ? "bg-olive-700 text-olive-50 border-olive-700"
-                    : "bg-white border-olive-100 text-olive-900"
+                    ? "bg-brand-700 text-brand-50 border-brand-700"
+                    : "bg-white border-brand-100 text-brand-900"
                 }`}
               >
                 {s.label}
@@ -186,8 +186,8 @@ export default function ProductPage() {
                   onClick={() => toggleExtra(e.id)}
                   className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-bold border transition-colors ${
                     on
-                      ? "bg-olive-700 text-olive-50 border-olive-700"
-                      : "bg-white border-olive-100 text-olive-900"
+                      ? "bg-brand-700 text-brand-50 border-brand-700"
+                      : "bg-white border-brand-100 text-brand-900"
                   }`}
                 >
                   {on && <CheckIcon className="w-3 h-3" />}
@@ -200,13 +200,13 @@ export default function ProductPage() {
         </section>
       )}
 
-      <section className="mt-6 flex items-center justify-between bg-white border border-olive-100 rounded-2xl p-3">
+      <section className="mt-6 flex items-center justify-between bg-white border border-brand-100 rounded-2xl p-3">
         <span className="font-bold text-sm">الكمية</span>
         <div className="flex items-center gap-3">
           <button
             onClick={() => setQty((q) => Math.max(1, q - 1))}
             aria-label="إنقاص"
-            className="w-9 h-9 rounded-xl bg-olive-50 border border-olive-100 flex items-center justify-center text-olive-800 active:scale-95 transition-transform"
+            className="w-9 h-9 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-800 active:scale-95 transition-transform"
           >
             <MinusIcon className="w-4 h-4" />
           </button>
@@ -214,7 +214,7 @@ export default function ProductPage() {
           <button
             onClick={() => setQty((q) => Math.min(99, q + 1))}
             aria-label="زيادة"
-            className="w-9 h-9 rounded-xl bg-olive-700 text-olive-50 flex items-center justify-center active:scale-95 transition-transform"
+            className="w-9 h-9 rounded-xl bg-brand-700 text-brand-50 flex items-center justify-center active:scale-95 transition-transform"
           >
             <PlusIcon className="w-4 h-4" />
           </button>
@@ -224,7 +224,7 @@ export default function ProductPage() {
       {added && (
         <Link
           href="/cart"
-          className="fixed bottom-24 inset-x-4 max-w-lg mx-auto z-50 flex items-center justify-center gap-2 rounded-full bg-olive-950 text-olive-50 py-3.5 font-bold text-sm shadow-xl animate-[fadeUp_.2s_ease-out]"
+          className="fixed bottom-24 inset-x-4 max-w-lg mx-auto z-50 flex items-center justify-center gap-2 rounded-full bg-brand-950 text-brand-50 py-3.5 font-bold text-sm shadow-xl animate-[fadeUp_.2s_ease-out]"
         >
           <CheckIcon className="w-4 h-4" />
           تمت الإضافة للسلة — اضغط للعرض
@@ -233,19 +233,19 @@ export default function ProductPage() {
 
       <div className="fixed bottom-0 inset-x-0 z-40">
         <div className="mx-auto max-w-lg px-4 pb-[calc(env(safe-area-inset-bottom)+14px)] pt-2">
-          <div className="rounded-3xl bg-olive-900 text-olive-50 shadow-xl shadow-olive-950/25 flex items-center justify-between p-3 ps-5">
+          <div className="rounded-3xl bg-brand-900 text-brand-50 shadow-xl shadow-brand-950/25 flex items-center justify-between p-3 ps-5">
             <div>
-              <p className="text-[11px] font-semibold text-olive-300">الإجمالي</p>
+              <p className="text-[11px] font-semibold text-brand-300">الإجمالي</p>
               <p className="font-black text-lg leading-tight">{formatPrice(unitPrice * qty)}</p>
             </div>
             <button
               onClick={addToCart}
-              className="inline-flex items-center gap-2 bg-white text-olive-900 font-extrabold text-sm rounded-2xl px-6 py-3 active:scale-95 transition-transform"
+              className="inline-flex items-center gap-2 bg-white text-brand-900 font-extrabold text-sm rounded-2xl px-6 py-3 active:scale-95 transition-transform"
             >
               <PlusIcon className="w-4 h-4" />
               أضف للسلة
               {count > 0 && (
-                <span className="bg-olive-100 text-olive-900 text-[10px] font-black rounded-full min-w-5 h-5 px-1 inline-flex items-center justify-center">
+                <span className="bg-brand-100 text-brand-900 text-[10px] font-black rounded-full min-w-5 h-5 px-1 inline-flex items-center justify-center">
                   {count}
                 </span>
               )}

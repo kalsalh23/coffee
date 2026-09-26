@@ -3,7 +3,7 @@ import { OrderStatus } from "@/lib/types";
 const STATUS: Record<OrderStatus, { label: string; cls: string }> = {
   new: { label: "تم استلام الطلب", cls: "bg-amber-100 text-amber-800" },
   preparing: { label: "قيد التحضير", cls: "bg-sky-100 text-sky-800" },
-  ready: { label: "جاهز", cls: "bg-olive-100 text-olive-800" },
+  ready: { label: "جاهز", cls: "bg-brand-100 text-brand-800" },
   completed: { label: "تم التسليم", cls: "bg-green-100 text-green-700" },
   cancelled: { label: "ملغي", cls: "bg-red-100 text-red-700" },
 };

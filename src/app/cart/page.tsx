@@ -17,7 +17,7 @@ export default function CartPage() {
         <PageHeader title="السلة" />
         <div className="mt-6 space-y-3" aria-busy="true">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="h-24 rounded-3xl bg-olive-100 animate-pulse" />
+            <div key={i} className="h-24 rounded-3xl bg-brand-100 animate-pulse" />
           ))}
         </div>
       </main>
@@ -29,16 +29,16 @@ export default function CartPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="السلة" />
         <div className="mt-20 text-center">
-          <div className="w-24 h-24 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
-            <CartIcon className="w-10 h-10 text-olive-600" />
+          <div className="w-24 h-24 mx-auto rounded-full bg-brand-100 flex items-center justify-center">
+            <CartIcon className="w-10 h-10 text-brand-600" />
           </div>
           <h2 className="mt-5 text-lg font-black">سلتك فاضية</h2>
-          <p className="mt-1 text-sm text-olive-800/70 font-bold">
+          <p className="mt-1 text-sm text-brand-800/70 font-bold">
             تصفح المنيو واخترلك شي يشدك
           </p>
           <Link
             href="/menu"
-            className="mt-6 inline-block bg-olive-700 text-olive-50 font-extrabold text-sm px-8 py-3.5 rounded-full active:scale-95 transition-transform"
+            className="mt-6 inline-block bg-brand-700 text-brand-50 font-extrabold text-sm px-8 py-3.5 rounded-full active:scale-95 transition-transform"
           >
             تصفح الممنو
           </Link>
@@ -55,9 +55,9 @@ export default function CartPage() {
         {items.map((item) => (
           <div
             key={item.key}
-            className="bg-white border border-olive-100 rounded-3xl p-3 flex gap-3 items-center"
+            className="bg-white border border-brand-100 rounded-3xl p-3 flex gap-3 items-center"
           >
-            <div className="relative w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-olive-100 to-olive-200 flex items-center justify-center text-3xl overflow-hidden">
+            <div className="relative w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center text-3xl overflow-hidden">
               {item.emoji}
               {item.imageUrl && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -78,24 +78,24 @@ export default function CartPage() {
                 <button
                   onClick={() => dispatch({ type: "REMOVE", key: item.key })}
                   aria-label="حذف"
-                  className="text-olive-800/40 hover:text-red-500 transition-colors p-1"
+                  className="text-brand-800/40 hover:text-red-500 transition-colors p-1"
                 >
                   <TrashIcon className="w-4 h-4" />
                 </button>
               </div>
-              <p className="text-[11px] text-olive-800/60 font-semibold mt-0.5 truncate">
+              <p className="text-[11px] text-brand-800/60 font-semibold mt-0.5 truncate">
                 {[item.size?.label, ...item.extras.map((e) => e.label)].filter(Boolean).join(" • ") ||
                   "بدون إضافات"}
               </p>
               <div className="mt-2 flex items-center justify-between">
-                <span className="font-black text-olive-700 text-sm">
+                <span className="font-black text-brand-700 text-sm">
                   {formatPrice(item.unitPrice * item.qty)}
                 </span>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => dispatch({ type: "SET_QTY", key: item.key, qty: item.qty - 1 })}
                     aria-label="إنقاص"
-                    className="w-7 h-7 rounded-lg bg-olive-50 border border-olive-100 flex items-center justify-center text-olive-800 active:scale-95 transition-transform"
+                    className="w-7 h-7 rounded-lg bg-brand-50 border border-brand-100 flex items-center justify-center text-brand-800 active:scale-95 transition-transform"
                   >
                     <MinusIcon className="w-3.5 h-3.5" />
                   </button>
@@ -103,7 +103,7 @@ export default function CartPage() {
                   <button
                     onClick={() => dispatch({ type: "SET_QTY", key: item.key, qty: Math.min(99, item.qty + 1) })}
                     aria-label="زيادة"
-                    className="w-7 h-7 rounded-lg bg-olive-700 text-olive-50 flex items-center justify-center active:scale-95 transition-transform"
+                    className="w-7 h-7 rounded-lg bg-brand-700 text-brand-50 flex items-center justify-center active:scale-95 transition-transform"
                   >
                     <PlusIcon className="w-3.5 h-3.5" />
                   </button>
@@ -114,25 +114,25 @@ export default function CartPage() {
         ))}
       </div>
 
-      <div className="mt-5 bg-white border border-olive-100 rounded-3xl p-4 space-y-2">
+      <div className="mt-5 bg-white border border-brand-100 rounded-3xl p-4 space-y-2">
         <div className="flex justify-between text-sm font-bold">
-          <span className="text-olive-800/70">المجموع الفرعي</span>
+          <span className="text-brand-800/70">المجموع الفرعي</span>
           <span>{formatPrice(subtotal)}</span>
         </div>
-        <div className="flex justify-between text-xs font-semibold text-olive-800/60">
+        <div className="flex justify-between text-xs font-semibold text-brand-800/60">
           <span>رسوم التوصيل</span>
           <span>{formatPrice(DELIVERY_FEE)} — تُحسب عند اختيار التوصيل</span>
         </div>
       </div>
 
-      <section className="mt-4 rounded-3xl bg-olive-900 text-olive-50 shadow-xl shadow-olive-950/25 flex items-center justify-between p-3 ps-5">
+      <section className="mt-4 rounded-3xl bg-brand-900 text-brand-50 shadow-xl shadow-brand-950/25 flex items-center justify-between p-3 ps-5">
         <div>
-          <p className="text-[11px] font-semibold text-olive-300">المجموع الفرعي</p>
+          <p className="text-[11px] font-semibold text-brand-300">المجموع الفرعي</p>
           <p className="font-black text-lg leading-tight">{formatPrice(subtotal)}</p>
         </div>
         <button
           onClick={() => router.push("/checkout")}
-          className="bg-white text-olive-900 font-extrabold text-sm rounded-2xl px-6 py-3 active:scale-95 transition-transform"
+          className="bg-white text-brand-900 font-extrabold text-sm rounded-2xl px-6 py-3 active:scale-95 transition-transform"
         >
           متابعة الطلب
         </button>

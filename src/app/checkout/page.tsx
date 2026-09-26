@@ -29,7 +29,7 @@ export default function CheckoutPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="إتمام الطلب" />
         <div className="mt-6 space-y-3" aria-busy="true">
-          <div className="h-40 rounded-3xl bg-olive-100 animate-pulse" />
+          <div className="h-40 rounded-3xl bg-brand-100 animate-pulse" />
         </div>
       </main>
     );
@@ -40,13 +40,13 @@ export default function CheckoutPage() {
       <main className="mx-auto max-w-lg px-4 pb-40">
         <PageHeader title="إتمام الطلب" />
         <div className="mt-20 text-center">
-          <div className="w-24 h-24 mx-auto rounded-full bg-olive-100 flex items-center justify-center">
-            <CartIcon className="w-10 h-10 text-olive-600" />
+          <div className="w-24 h-24 mx-auto rounded-full bg-brand-100 flex items-center justify-center">
+            <CartIcon className="w-10 h-10 text-brand-600" />
           </div>
           <p className="mt-4 font-bold">ما فيه شي في السلة</p>
           <button
             onClick={() => router.push("/menu")}
-            className="mt-5 bg-olive-700 text-olive-50 font-bold text-sm px-6 py-3 rounded-full"
+            className="mt-5 bg-brand-700 text-brand-50 font-bold text-sm px-6 py-3 rounded-full"
           >
             تصفح الممنو
           </button>
@@ -109,7 +109,7 @@ export default function CheckoutPage() {
   }
 
   const inputCls =
-    "w-full rounded-2xl border border-olive-100 bg-white px-4 py-3 text-sm font-semibold placeholder:text-olive-800/40 focus:outline-none focus:border-olive-400 focus:ring-2 focus:ring-olive-100";
+    "w-full rounded-2xl border border-brand-100 bg-white px-4 py-3 text-sm font-semibold placeholder:text-brand-800/40 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100";
 
   return (
     <main className="mx-auto max-w-lg px-4 pb-4">
@@ -122,8 +122,8 @@ export default function CheckoutPage() {
             onClick={() => setOrderType("pickup")}
             className={`flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-bold border transition-colors ${
               orderType === "pickup"
-                ? "bg-olive-700 text-olive-50 border-olive-700"
-                : "bg-white border-olive-100 text-olive-900"
+                ? "bg-brand-700 text-brand-50 border-brand-700"
+                : "bg-white border-brand-100 text-brand-900"
             }`}
           >
             <BagIcon className="w-4 h-4" />
@@ -133,8 +133,8 @@ export default function CheckoutPage() {
             onClick={() => setOrderType("delivery")}
             className={`flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-bold border transition-colors ${
               orderType === "delivery"
-                ? "bg-olive-700 text-olive-50 border-olive-700"
-                : "bg-white border-olive-100 text-olive-900"
+                ? "bg-brand-700 text-brand-50 border-brand-700"
+                : "bg-white border-brand-100 text-brand-900"
             }`}
           >
             <MapPinIcon className="w-4 h-4" />
@@ -145,7 +145,7 @@ export default function CheckoutPage() {
 
       <section className="mt-5 space-y-3">
         <div>
-          <label className="block text-xs font-bold text-olive-800/70 mb-1.5">الاسم</label>
+          <label className="block text-xs font-bold text-brand-800/70 mb-1.5">الاسم</label>
           <input
             className={inputCls}
             value={name}
@@ -155,7 +155,7 @@ export default function CheckoutPage() {
           />
         </div>
         <div>
-          <label className="block text-xs font-bold text-olive-800/70 mb-1.5">رقم الجوال</label>
+          <label className="block text-xs font-bold text-brand-800/70 mb-1.5">رقم الجوال</label>
           <input
             className={inputCls}
             value={phone}
@@ -168,7 +168,7 @@ export default function CheckoutPage() {
         </div>
         {orderType === "delivery" && (
           <div>
-            <label className="block text-xs font-bold text-olive-800/70 mb-1.5">
+            <label className="block text-xs font-bold text-brand-800/70 mb-1.5">
               عنوان التوصيل
             </label>
             <textarea
@@ -181,7 +181,7 @@ export default function CheckoutPage() {
           </div>
         )}
         <div>
-          <label className="block text-xs font-bold text-olive-800/70 mb-1.5">
+          <label className="block text-xs font-bold text-brand-800/70 mb-1.5">
             ملاحظات (اختياري)
           </label>
           <textarea
@@ -194,10 +194,10 @@ export default function CheckoutPage() {
         </div>
       </section>
 
-      <section className="mt-5 bg-white border border-olive-100 rounded-3xl p-4 space-y-2.5">
+      <section className="mt-5 bg-white border border-brand-100 rounded-3xl p-4 space-y-2.5">
         <h2 className="font-black text-sm mb-1">ملخص الطلب</h2>
         {items.map((i) => (
-          <div key={i.key} className="flex justify-between text-xs font-semibold text-olive-900/80">
+          <div key={i.key} className="flex justify-between text-xs font-semibold text-brand-900/80">
             <span className="truncate">
               {i.qty}× {i.nameAr}
               {i.size ? ` (${i.size.label})` : ""}
@@ -205,16 +205,16 @@ export default function CheckoutPage() {
             <span className="whitespace-nowrap">{formatPrice(i.unitPrice * i.qty)}</span>
           </div>
         ))}
-        <div className="border-t border-dashed border-olive-200 pt-2.5 space-y-1.5">
+        <div className="border-t border-dashed border-brand-200 pt-2.5 space-y-1.5">
           <div className="flex justify-between text-xs font-bold">
-            <span className="text-olive-800/70">المجموع الفرعي</span>
+            <span className="text-brand-800/70">المجموع الفرعي</span>
             <span>{formatPrice(subtotal)}</span>
           </div>
           <div className="flex justify-between text-xs font-bold">
-            <span className="text-olive-800/70">التوصيل</span>
+            <span className="text-brand-800/70">التوصيل</span>
             <span>{deliveryFee > 0 ? formatPrice(deliveryFee) : "مجاني"}</span>
           </div>
-          <div className="flex justify-between text-sm font-black text-olive-700">
+          <div className="flex justify-between text-sm font-black text-brand-700">
             <span>الإجمالي</span>
             <span>{formatPrice(total)}</span>
           </div>
@@ -229,15 +229,15 @@ export default function CheckoutPage() {
 
       <div className="fixed bottom-0 inset-x-0 z-40">
         <div className="mx-auto max-w-lg px-4 pb-[calc(env(safe-area-inset-bottom)+14px)] pt-2">
-          <div className="rounded-3xl bg-olive-900 text-olive-50 shadow-xl shadow-olive-950/25 flex items-center justify-between p-3 ps-5">
+          <div className="rounded-3xl bg-brand-900 text-brand-50 shadow-xl shadow-brand-950/25 flex items-center justify-between p-3 ps-5">
             <div>
-              <p className="text-[11px] font-semibold text-olive-300">الإجمالي</p>
+              <p className="text-[11px] font-semibold text-brand-300">الإجمالي</p>
               <p className="font-black text-lg leading-tight">{formatPrice(total)}</p>
             </div>
             <button
               onClick={submit}
               disabled={submitting}
-              className="inline-flex items-center gap-2 bg-white text-olive-900 font-extrabold text-sm rounded-2xl px-6 py-3 active:scale-95 transition-transform disabled:opacity-60"
+              className="inline-flex items-center gap-2 bg-white text-brand-900 font-extrabold text-sm rounded-2xl px-6 py-3 active:scale-95 transition-transform disabled:opacity-60"
             >
               {submitting ? (
                 "جاري إرسال الطلب..."

@@ -6,7 +6,7 @@ export default function Logo({ size = 46 }: { size?: number }) {
       width={size}
       height={size}
       alt="5mintcoffee"
-      className="rounded-full shadow-sm shadow-olive-950/10"
+      className="rounded-full shadow-sm shadow-brand-950/10"
     />
   );
 }
