@@ -243,17 +243,19 @@ export default function ProductPage() {
 
       <div className="fixed bottom-0 inset-x-0 z-40">
         <div className="mx-auto max-w-lg px-4 pb-[calc(env(safe-area-inset-bottom)+14px)] pt-2">
-          <div className="rounded-3xl bg-brand-900 text-brand-50 shadow-xl shadow-brand-950/25 flex items-center justify-between p-3 ps-5">
-            <div>
-              <p className="text-[11px] font-semibold text-brand-300">الإجمالي</p>
-              <p className="font-black text-lg leading-tight">{formatPrice(unitPrice * qty)}</p>
+          <div className="rounded-3xl bg-brand-900 text-brand-50 shadow-xl shadow-brand-950/25 flex items-center justify-between gap-2 p-2.5 ps-4">
+            <div className="shrink-0">
+              <p className="text-[10px] font-semibold text-brand-300">الإجمالي</p>
+              <p className="font-black text-base leading-tight whitespace-nowrap">
+                {formatPrice(unitPrice * qty)}
+              </p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 min-w-0">
               <button
                 onClick={addToCart}
-                className="inline-flex items-center gap-1.5 bg-white text-brand-900 font-extrabold text-[13px] rounded-2xl px-4 py-3 active:scale-95 transition-transform"
+                className="inline-flex items-center justify-center gap-1 whitespace-nowrap bg-white text-brand-900 font-extrabold text-xs rounded-2xl px-3 py-3 active:scale-95 transition-transform"
               >
-                <PlusIcon className="w-4 h-4" />
+                <PlusIcon className="w-3.5 h-3.5" />
                 أضف للسلة
                 {count > 0 && (
                   <span className="bg-brand-100 text-brand-900 text-[10px] font-black rounded-full min-w-5 h-5 px-1 inline-flex items-center justify-center">
@@ -263,9 +265,9 @@ export default function ProductPage() {
               </button>
               <button
                 onClick={orderNow}
-                className="inline-flex items-center gap-1.5 bg-green-600 text-white font-extrabold text-[13px] rounded-2xl px-5 py-3 shadow-sm shadow-green-950/30 active:scale-95 transition-transform"
+                className="inline-flex items-center justify-center gap-1 whitespace-nowrap bg-green-600 text-white font-extrabold text-xs rounded-2xl px-4 py-3 shadow-sm shadow-green-950/30 active:scale-95 transition-transform"
               >
-                <CheckIcon className="w-4 h-4" />
+                <CheckIcon className="w-3.5 h-3.5" />
                 اطلب الآن
               </button>
             </div>
