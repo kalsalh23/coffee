@@ -7,7 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 export const metadata: Metadata = {
   title: "قهوة 2 | Twoqahwa — قهوة مختصة",
   description:
-    "قهوة 2 (Twoqahwa) — قهوة مختصة ومشروبات وحلويات في حماة، مقابل القافلة أول مخبر العنيدة. اطلب الآن واستلم من الفرع أو نوصلها لباب بيتك.",
+    "قهوة 2 (Twoqahwa) — قهوة مختصة ومشروبات وحلويات في حماة، مقابل القلعة أول مدخل المدينة. اطلب الآن واستلم من الفرع أو نوصلها لباب بيتك.",
 };
 
 export const viewport: Viewport = {

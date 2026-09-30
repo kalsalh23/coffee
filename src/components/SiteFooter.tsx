@@ -4,7 +4,8 @@ import { usePathname } from "next/navigation";
 import { InstagramIcon, MapPinIcon } from "./icons";
 
 const MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=%D9%82%D9%87%D9%88%D8%A9%202%20%D8%AD%D9%85%D8%A7%D9%87";
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("مقابل القلعة — أول مدخل المدينة — دوار التأمينات — حماة");
 const INSTAGRAM_URL = "https://instagram.com/two.qahwa";
 
 export default function SiteFooter() {
@@ -33,7 +34,7 @@ export default function SiteFooter() {
             <span className="flex-1 min-w-0">
               <span className="block text-xs font-extrabold">قهوة 2 — حماة</span>
               <span className="block text-[11px] font-bold text-brand-200/90 mt-0.5">
-                مقابل القافلة — أول مخبر العنيدة | دوار التأمينات (اضغط لفتح الخريطة)
+                مقابل القلعة — أول مدخل المدينة | دوار التأمينات (اضغط لفتح الخريطة)
               </span>
             </span>
             <MapPinIcon className="w-5 h-5 text-brand-300 shrink-0" />
