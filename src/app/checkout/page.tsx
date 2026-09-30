@@ -17,6 +17,10 @@ export default function CheckoutPage() {
   const [phone, setPhone] = useState("");
   const [orderType, setOrderType] = useState<"pickup" | "delivery">("pickup");
   const [address, setAddress] = useState("");
+  const [addressDetails, setAddressDetails] = useState("");
+  const [mapsUrl, setMapsUrl] = useState<string | null>(null);
+  const [locating, setLocating] = useState(false);
+  const [locError, setLocError] = useState<string | null>(null);
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -55,12 +59,51 @@ export default function CheckoutPage() {
     );
   }
 
+  function detectLocation() {
+    setLocError(null);
+    if (!("geolocation" in navigator)) {
+      setLocError("جهازك لا يدعم تحديد الموقع");
+      return;
+    }
+    setLocating(true);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        const url = `https://maps.google.com/?q=${lat},${lng}`;
+        let place = `إحداثيات: ${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=ar`,
+            { headers: { Accept: "application/json" } }
+          );
+          const data = await res.json();
+          if (data?.display_name) place = data.display_name;
+        } catch {
+          // keep coordinates as the fallback address
+        }
+        setAddress(`${place} — ${url}`);
+        setMapsUrl(url);
+        setLocating(false);
+      },
+      (err) => {
+        setLocating(false);
+        setLocError(
+          err.code === err.PERMISSION_DENIED
+            ? "لم يتم السماح بالوصول للموقع — اسمح بصلاحية الموقع من المتصفح ثم أعد المحاولة"
+            : "تعذر تحديد الموقع، تأكد من تشغيل خدمة الموقع وجرّب مرة ثانية"
+        );
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 }
+    );
+  }
+
   async function submit() {
     setError(null);
     if (!name.trim()) return setError("اكتب اسمك أولاً");
     if (!/^[\d+\s-]{9,15}$/.test(phone.trim())) return setError("أدخل رقم جوال صحيح");
-    if (orderType === "delivery" && address.trim().length < 5)
-      return setError("اكتب عنوان التوصيل بالتفصيل");
+    if (orderType === "delivery" && !address.trim())
+      return setError("حدد موقعك تلقائياً أولاً حتى نوصلك");
 
     setSubmitting(true);
     try {
@@ -72,7 +115,10 @@ export default function CheckoutPage() {
         customer_name: name.trim(),
         phone: phone.trim(),
         order_type: orderType,
-        address: orderType === "delivery" ? address.trim() : null,
+        address:
+          orderType === "delivery"
+            ? [address.trim(), addressDetails.trim()].filter(Boolean).join(" — ")
+            : null,
         notes: notes.trim() || null,
         subtotal,
         delivery_fee: deliveryFee,
@@ -169,14 +215,49 @@ export default function CheckoutPage() {
         {orderType === "delivery" && (
           <div>
             <label className="block text-xs font-bold text-brand-800/70 mb-1.5">
-              عنوان التوصيل
+              موقع التوصيل
             </label>
-            <textarea
-              className={`${inputCls} h-20 resize-none`}
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder="الحي، الشارع، أقرب معلم..."
-              maxLength={300}
+            <button
+              type="button"
+              onClick={detectLocation}
+              disabled={locating}
+              className="w-full rounded-2xl border border-brand-200 bg-white px-4 py-3.5 text-sm font-extrabold text-brand-800 inline-flex items-center justify-center gap-2 active:scale-[.98] transition-transform disabled:opacity-60"
+            >
+              <MapPinIcon className="w-4 h-4" />
+              {locating ? "جاري تحديد موقعك..." : "تحديد موقعي تلقائياً"}
+            </button>
+            {locError && (
+              <p className="mt-2 text-[11px] font-bold text-red-600 bg-red-50 rounded-xl p-2.5">
+                {locError}
+              </p>
+            )}
+            {address && (
+              <div className="mt-2 rounded-2xl bg-brand-50 border border-brand-100 p-3">
+                <p className="text-[11px] font-extrabold text-brand-700">
+                  ✓ تم تحديد موقع التوصيل
+                </p>
+                <p className="text-xs font-semibold text-brand-900/80 mt-1 break-words">
+                  {address}
+                </p>
+                {mapsUrl && (
+                  <a
+                    href={mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-bold text-brand-700 underline mt-1 inline-block"
+                    dir="ltr"
+                  >
+                    افتح الموقع على الخريطة
+                  </a>
+                )}
+              </div>
+            )}
+            <input
+              className={`${inputCls} mt-2`}
+              value={addressDetails}
+              onChange={(e) => setAddressDetails(e.target.value)}
+              placeholder="تفاصيل إضافية (اختياري): طابق، بناية، أقرب معلم..."
+              maxLength={200}
             />
           </div>
         )}
