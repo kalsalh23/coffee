@@ -29,7 +29,8 @@ export function sizesFor(priceMode: string): SizeOption[] {
 }
 
 export function formatPrice(n: number): string {
-  const v = Math.round(Number(n) || 0);
+  // الأرقام تُعرض بأسلوب منيو المحل (بدون الصفرين الأخيرين): 25000 -> 250
+  const v = Math.round((Number(n) || 0) / 100);
   return v.toLocaleString("en-US") + " " + CURRENCY;
 }
 

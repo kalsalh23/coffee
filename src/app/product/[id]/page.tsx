@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { CartItem, Product } from "@/lib/types";
 import { extrasFor, formatPrice, sizesFor } from "@/lib/menu-config";
@@ -12,6 +12,7 @@ import { BagIcon, CheckIcon, MinusIcon, PlusIcon } from "@/components/icons";
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
+  const router = useRouter();
   const { dispatch, count } = useCart();
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -61,7 +62,7 @@ export default function ProductPage() {
     setExtraIds((prev) => (prev.includes(exId) ? prev.filter((x) => x !== exId) : [...prev, exId]));
   }
 
-  function addToCart() {
+  function addItemToCart() {
     if (!product) return;
     const item: CartItem = {
       key: [product.id, sizeId, ...extraIds.slice().sort()].join("|"),
@@ -76,8 +77,17 @@ export default function ProductPage() {
       unitPrice,
     };
     dispatch({ type: "ADD", item });
+  }
+
+  function addToCart() {
+    addItemToCart();
     setAdded(true);
     window.setTimeout(() => setAdded(false), 2500);
+  }
+
+  function orderNow() {
+    addItemToCart();
+    router.push("/checkout");
   }
 
   if (loading) {
@@ -238,18 +248,27 @@ export default function ProductPage() {
               <p className="text-[11px] font-semibold text-brand-300">الإجمالي</p>
               <p className="font-black text-lg leading-tight">{formatPrice(unitPrice * qty)}</p>
             </div>
-            <button
-              onClick={addToCart}
-              className="inline-flex items-center gap-2 bg-white text-brand-900 font-extrabold text-sm rounded-2xl px-6 py-3 active:scale-95 transition-transform"
-            >
-              <PlusIcon className="w-4 h-4" />
-              أضف للسلة
-              {count > 0 && (
-                <span className="bg-brand-100 text-brand-900 text-[10px] font-black rounded-full min-w-5 h-5 px-1 inline-flex items-center justify-center">
-                  {count}
-                </span>
-              )}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={addToCart}
+                className="inline-flex items-center gap-1.5 bg-white text-brand-900 font-extrabold text-[13px] rounded-2xl px-4 py-3 active:scale-95 transition-transform"
+              >
+                <PlusIcon className="w-4 h-4" />
+                أضف للسلة
+                {count > 0 && (
+                  <span className="bg-brand-100 text-brand-900 text-[10px] font-black rounded-full min-w-5 h-5 px-1 inline-flex items-center justify-center">
+                    {count}
+                  </span>
+                )}
+              </button>
+              <button
+                onClick={orderNow}
+                className="inline-flex items-center gap-1.5 bg-green-600 text-white font-extrabold text-[13px] rounded-2xl px-5 py-3 shadow-sm shadow-green-950/30 active:scale-95 transition-transform"
+              >
+                <CheckIcon className="w-4 h-4" />
+                اطلب الآن
+              </button>
+            </div>
           </div>
         </div>
       </div>
