@@ -28,7 +28,7 @@ export default function HomePage() {
             .order("sort_order"),
         ]);
         if (!active) return;
-        if (catsRes.error || prodsRes.error) throw new Error("تعذر تحميل الممنو");
+        if (catsRes.error || prodsRes.error) throw new Error("تعذر تحميل المنيو");
         setCategories(catsRes.data ?? []);
         setProducts(prodsRes.data ?? []);
       } catch {
@@ -51,8 +51,8 @@ export default function HomePage() {
         <div className="flex items-center gap-3">
           <Logo size={46} />
           <div>
-            <p className="font-extrabold text-xl leading-tight tracking-tight" dir="ltr">
-              Coffee Sir
+            <p className="font-extrabold text-xl leading-tight tracking-tight">
+              قهوة 2
             </p>
             <p className="text-xs font-bold text-brand-700">قهوة مختصة — حماة</p>
           </div>
@@ -74,9 +74,9 @@ export default function HomePage() {
         />
         <p className="text-brand-200 text-xs font-bold">قهوة مختصة في حماة</p>
         <h1 className="text-2xl font-extrabold mt-1.5 leading-snug">
-          في ناس بتشرب قهوة
+          أهلاً بيكم في
           <br />
-          وفي ناس بتفهما
+          2 قهوة
         </h1>
         <p className="text-sm text-brand-100/80 mt-2 font-bold">
           اطلب من المنيو واستلم من الفرع أو نوصلها لباب بيتك
@@ -160,7 +160,7 @@ export default function HomePage() {
 
           <section className="mt-8">
             <div className="flex items-center justify-between mb-3">
-              <h2 className="text-lg font-black">استكشف الممنو</h2>
+              <h2 className="text-lg font-black">استكشف المنيو</h2>
               <Link href="/menu" className="text-sm font-bold text-brand-700">
                 عرض الكل
               </Link>

@@ -3,8 +3,9 @@
 import { usePathname } from "next/navigation";
 import { InstagramIcon, MapPinIcon } from "./icons";
 
-const MAPS_URL = "https://maps.app.goo.gl/6vYx6uRoQJZe7VJ8A";
-const INSTAGRAM_URL = "https://instagram.com/coffee.sir.hama";
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=%D9%82%D9%87%D9%88%D8%A9%202%20%D8%AD%D9%85%D8%A7%D9%87";
+const INSTAGRAM_URL = "https://instagram.com/two.qahwa";
 
 export default function SiteFooter() {
   const pathname = usePathname();
@@ -26,13 +27,13 @@ export default function SiteFooter() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo.png"
-              alt="Coffee Sir"
+              alt="قهوة 2"
               className="w-10 h-10 rounded-full shrink-0"
             />
             <span className="flex-1 min-w-0">
-              <span className="block text-xs font-extrabold">Coffee Sir — حماة</span>
+              <span className="block text-xs font-extrabold">قهوة 2 — حماة</span>
               <span className="block text-[11px] font-bold text-brand-200/90 mt-0.5">
-                التشرية — شارع الغداء (اضغط لفتح الخريطة)
+                مقابل القافلة — أول مخبر العنيدة | دوار التأمينات (اضغط لفتح الخريطة)
               </span>
             </span>
             <MapPinIcon className="w-5 h-5 text-brand-300 shrink-0" />
@@ -46,7 +47,7 @@ export default function SiteFooter() {
             <InstagramIcon className="w-4 h-4 text-brand-300" />
             تابعنا على انستغرام
             <span dir="ltr" className="text-brand-200/80">
-              @coffee.sir.hama
+              @two.qahwa
             </span>
           </a>
         </div>

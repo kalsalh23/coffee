@@ -48,7 +48,7 @@ export default function CheckoutPage() {
             onClick={() => router.push("/menu")}
             className="mt-5 bg-brand-700 text-brand-50 font-bold text-sm px-6 py-3 rounded-full"
           >
-            تصفح الممنو
+            تصفح المنيو
           </button>
         </div>
       </main>

@@ -95,7 +95,7 @@ export default function OrderDetailPage() {
 
         {cancelled ? (
           <div className="mt-4 rounded-2xl bg-red-50 text-red-700 text-sm font-bold py-3 px-4 text-center">
-            تم إلغاء هذا الطلب — تواصل معنا على 0964565315
+            تم إلغاء هذا الطلب — تواصل معنا على 0986740110
           </div>
         ) : (
           <div className="mt-6">

@@ -5,7 +5,7 @@ export default function Logo({ size = 46 }: { size?: number }) {
       src="/logo.png"
       width={size}
       height={size}
-      alt="5mintcoffee"
+      alt="قهوة 2 — Twoqahwa"
       className="rounded-full shadow-sm shadow-brand-950/10"
     />
   );
