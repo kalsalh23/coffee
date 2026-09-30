@@ -16,7 +16,7 @@ export type Product = {
   base_price: number;
   emoji: string;
   image_url?: string | null;
-  price_mode: "drink" | "dessert" | "beans";
+  price_mode: "drink" | "dessert" | "beans" | "fixed";
   is_featured: boolean;
   is_available: boolean;
   sort_order: number;

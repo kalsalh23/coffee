@@ -17,30 +17,7 @@ export const SIZES: Record<string, SizeOption[]> = {
   dessert: [],
 };
 
-const COFFEE_EXTRAS: Extra[] = [
-  { id: "x-espresso", label: "شوت إسبريسو إضافي", price: 8000 },
-  { id: "x-almond", label: "حليب لوز", price: 6000 },
-  { id: "x-coconut", label: "حليب جوز الهند", price: 6000 },
-  { id: "x-caramel", label: "كراميل", price: 4000 },
-  { id: "x-vanilla", label: "فانيلا", price: 4000 },
-];
-
-const REFRESHER_EXTRAS: Extra[] = [
-  { id: "x-mint", label: "نعناع طازج", price: 2000 },
-  { id: "x-chia", label: "بذور الشيا", price: 2000 },
-];
-
-const MATCHA_EXTRAS: Extra[] = [
-  { id: "x-almond", label: "حليب لوز", price: 6000 },
-  { id: "x-coconut", label: "حليب جوز الهند", price: 6000 },
-];
-
-const EXTRAS_BY_CATEGORY: Record<string, Extra[]> = {
-  hot: COFFEE_EXTRAS,
-  iced: COFFEE_EXTRAS,
-  refreshers: REFRESHER_EXTRAS,
-  matcha: MATCHA_EXTRAS,
-};
+const EXTRAS_BY_CATEGORY: Record<string, Extra[]> = {};
 
 export function extrasFor(categorySlug?: string | null): Extra[] {
   if (!categorySlug) return [];
@@ -61,11 +38,6 @@ const STORAGE_BASE =
 
 const CATEGORY_IMAGES: Record<string, string> = {
   hot: STORAGE_BASE + "cappuccino.jpg",
-  iced: STORAGE_BASE + "iced-latte.jpg",
-  refreshers: STORAGE_BASE + "mint-mojito.jpg",
-  matcha: STORAGE_BASE + "matcha-latte.jpg",
-  desserts: STORAGE_BASE + "basque-cheesecake.jpg",
-  beans: STORAGE_BASE + "ethiopia.jpg",
 };
 
 export function categoryImage(slug: string): string | undefined {
